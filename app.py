@@ -6,9 +6,9 @@ import time
 
 app = Flask(__name__)
 
-# Binance API Keys (Replace with your own)
-API_KEY = "your_api_key"
-API_SECRET = "your_api_secret"
+# Load API Keys from environment variables
+API_KEY = os.getenv("API_KEY")
+API_SECRET = os.getenv("API_SECRET")
 client = Client(API_KEY, API_SECRET)
 
 # Bot State

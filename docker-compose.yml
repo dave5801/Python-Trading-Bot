@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  crypto-bot:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - API_KEY=your_binance_api_key
+      - API_SECRET=your_binance_secret_key
+    restart: always
