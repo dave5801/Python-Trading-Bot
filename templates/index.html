@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Trading Bot</title>
+    <script>
+        function startBot() {
+            fetch("/start", { method: "POST" })
+                .then(response => response.json())
+                .then(data => alert(data.status));
+        }
+
+        function stopBot() {
+            fetch("/stop", { method: "POST" })
+                .then(response => response.json())
+                .then(data => alert(data.status));
+        }
+    </script>
+</head>
+<body>
+    <h1>Crypto Trading Bot</h1>
+    <p>Current BTC Price: ${{ price }}</p>
+    
+    <button onclick="startBot()">Start Bot</button>
+    <button onclick="stopBot()">Stop Bot</button>
+    
+    <h2>Trade Logs:</h2>
+    <ul>
+        {% for log in logs %}
+            <li>{{ log }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
